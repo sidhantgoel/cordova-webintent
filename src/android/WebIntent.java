@@ -2,6 +2,7 @@ package com.borismus.webintent;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 import org.apache.cordova.CordovaActivity;
 import org.json.JSONArray;
@@ -55,7 +56,6 @@ public class WebIntent extends CordovaPlugin {
                 Intent shareIntent = new Intent();
 
                 shareIntent.setAction(obj.getString("action"));
-                shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
                 shareIntent.setType(type);
 
                 // Populate the extras if any exist
