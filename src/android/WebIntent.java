@@ -78,6 +78,13 @@ public class WebIntent extends CordovaPlugin {
                             }
                         } else {
                             shareIntent.putExtra(key, value.toString());
+                        } else if(key.equals(Intent.EXTRA_EMAIL)) {
+                            JSONArray jArray = (JSONArray) value;
+                            String[] arrayList = new String[jArray.length()];
+                            for(int j=0;j < jArray.length();j++){
+                                arrayList[j] = jArray.getString(j);
+                            }
+                            shareIntent.putExtra(key, arrayList);
                         }
                     }
                 }
