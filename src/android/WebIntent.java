@@ -191,6 +191,10 @@ public class WebIntent extends CordovaPlugin {
         }
     }
 
+    void startActivity(Intent i) {
+        ((CordovaActivity)this.cordova.getActivity()).startActivity(i);
+    }
+
     void startActivity(String action, Uri uri, String type, Map<String, String> extras) {
         Intent i = (uri != null ? new Intent(action, uri) : new Intent(action));
 
