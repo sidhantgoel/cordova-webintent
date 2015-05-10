@@ -76,8 +76,6 @@ public class WebIntent extends CordovaPlugin {
                             else {
                                 shareIntent.putExtra(key, Uri.parse(value.toString()));
                             }
-                        } else {
-                            shareIntent.putExtra(key, value.toString());
                         } else if(key.equals(Intent.EXTRA_EMAIL)) {
                             JSONArray jArray = (JSONArray) value;
                             String[] arrayList = new String[jArray.length()];
@@ -85,6 +83,8 @@ public class WebIntent extends CordovaPlugin {
                                 arrayList[j] = jArray.getString(j);
                             }
                             shareIntent.putExtra(key, arrayList);
+                        } else {
+                            shareIntent.putExtra(key, value.toString());
                         }
                     }
                 }
