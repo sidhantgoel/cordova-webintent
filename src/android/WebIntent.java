@@ -74,7 +74,7 @@ public class WebIntent extends CordovaPlugin {
                                 shareIntent.putParcelableArrayListExtra(key, arrayList);
                             }
                             else {
-                                shareIntent.putExtra(key, value.toString());
+                                shareIntent.putExtra(key, Uri.parse(value.toString()));
                             }
                         }
                     }
