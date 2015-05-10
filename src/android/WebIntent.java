@@ -65,9 +65,10 @@ public class WebIntent extends CordovaPlugin {
                         String key = extraNames.getString(i);
                         Object value = extras.getString(key);
                         if(value instanceof JSONArray) {
-                            ArrayList<String> arrayList = new ArrayList(value.length());
-                            for(int i=0;i < value.length();i++){
-                                arrayList.add(value.getString(i));
+                            JSONArray jArray = (JSONArray) value;
+                            ArrayList<String> arrayList = new ArrayList(jArray.length());
+                            for(int i=0;i < jArray.length();i++){
+                                arrayList.add(jArray.getString(i));
                             }
                             shareIntent.putParcelableArrayListExtra(key, arrayList);
                         }
