@@ -76,6 +76,8 @@ public class WebIntent extends CordovaPlugin {
                             else {
                                 shareIntent.putExtra(key, Uri.parse(value.toString()));
                             }
+                        } else {
+                            shareIntent.putExtra(key, value.toString());
                         }
                     }
                 }
