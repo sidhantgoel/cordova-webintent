@@ -177,6 +177,12 @@ public class WebIntent extends CordovaPlugin {
                     }
                 }
 
+                //data
+                if(obj.has("dataUri")) {
+                  final CordovaResourceApi resourceApi = webView.getResourceApi();
+                  i.setData(resourceApi.remapUri(Uri.parse(obj.getString("dataUri"))));
+                }
+
                 sendBroadcast(obj.getString("action"), extrasMap);
                 //return new PluginResult(PluginResult.Status.OK);
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
